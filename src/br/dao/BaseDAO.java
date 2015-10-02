@@ -13,7 +13,7 @@ public class BaseDAO {
 	protected void conectar(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "root");
+			conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "");
 			comando = (Statement) conexao.createStatement();
 			System.out.println("Conectado!");
 		} catch (java.sql.SQLException e) {  
