@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" template="template.xhtml">
+	<ui:define name="conteudo">
+		<h:form>
+			<h2>Cadastro de Produtos</h2>
+			<!-- produtoMB Classe manegement Bean - Nome da Classe com a letra minuscula -->
+			<h:panelGrid columns="3">
+				<h:inputHidden id="inProduto" value="#{produtoMB.produto.idProduto}"/>
+				<h:outputText value="Nome do produto*: " />
+				<h:inputText id="inDescricao" value="#{produtoMB.produto.descricao}"
+					required="true" requiredMessage="Nome do produto Obrigatório!" />
+				<h:message for="inDescricao" />
+
+				<h:outputText value="Valor*: " />
+				<h:inputText id="inValor" value="#{produtoMB.produto.valor}"
+					required="true" requiredMessage="Valor Obrigatório!"/>
+				<h:message for="inValor"/>
+
+				<h:outputText value="Quantidade*: " />
+				<h:inputText id="inQuantidade" value="#{produtoMB.produto.quantidade}"
+					required="true" requiredMessage="Quantidade do Produto Obrigatória!"/>
+				<h:message for="inQuantidade"/>
+
+				
+				<h:commandButton value="Salvar" action="#{produtoMB.salvar}" />
+			</h:panelGrid>
+		</h:form>
+		<h:form>
+			<h:dataTable value="#{produtoMB.listaProduto}" var="prod"
+				styleClass="tabela" headerClass="cabecalho"
+				columnClasses="primeiro,primeiro,primeiro,primeiro,primeiro">
+				<h:column>
+					<f:facet name="header">Nome do Produto</f:facet>
+				#{prod.descricao}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Valor</f:facet>
+				#{prod.valor}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Quantidade</f:facet>
+				#{prod.quantidade}
+			</h:column>
+				
+				<h:column>
+					<f:facet name="header">Editar</f:facet>
+					<h:commandButton value="Editar">
+						<f:setPropertyActionListener target="#{produtoMB.produto}"
+							value="#{prod}" />
+					</h:commandButton>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Excluir</f:facet>
+					<h:commandButton value="Excluir" action="#{produtoMB.excluir}">
+						<f:setPropertyActionListener target="#{produtoMB.produto}"
+							value="#{prod}" />
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

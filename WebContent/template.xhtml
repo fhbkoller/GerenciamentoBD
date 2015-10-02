@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="estilo.css"   /> 
+</h:head>
+
+<h:body>
+	<div id="header">
+		<h1> Trabalho de Gerenciamento de Banco de Dados </h1>
+	</div>
+
+	<div id="nav">
+		<div id="cssmenu">
+		<ul>
+		<li> <a href= "cadastroProduto.jsf"> Produtos - Cadastro</a> </li>
+		<li> <a href= "pesquisaProduto.jsf"> Produtos - Consulta</a> </li>
+		</ul>
+		</div>
+	</div>
+
+	<div id="section">
+		<ui:insert name="conteudo"/>
+	</div>
+
+	<div id="footer">Feito por Fernando Koller e Thaise Martins</div>
+</h:body>
+</html>
