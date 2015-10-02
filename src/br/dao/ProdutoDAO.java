@@ -43,13 +43,13 @@ public class ProdutoDAO extends BaseDAO {
 
 	public List<Produto> buscarPorDescricao(String descricao) {
 		conectar();
-		Produto produto = new Produto();
 		List<Produto> produtos = new ArrayList<Produto>();
 		ResultSet rs;
 		try {
 			rs = comando.executeQuery("SELECT produto.idproduto, produto.descricao, produto.valor, produto.quantidade"
 					+ " FROM produto" + " WHERE produto.descricao LIKE '%" + descricao +"%'");
 			while (rs.next()) {
+				Produto produto = new Produto();
 				produto.setIdProduto(rs.getInt("idproduto"));
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setValor(rs.getDouble("valor"));
